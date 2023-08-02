@@ -1,17 +1,20 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-
+import { useState } from 'react';
 export const ContactUs = () => {
   const form = useRef();
-
+  const [sent, setSent]=useState(false);
+  const [error, setError]=useState(false);
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs.sendForm('service_n5v7ong', 'template_oednwz8', form.current, 'onX5gKobJMRnk-p8Y')
       .then((result) => {
-          console.log(result.text);
+          setSent(true);
+          setError(false);
       }, (error) => {
-          console.log(error.text);
+          setError(true);
+          setSent(false);
       });
       e.target.reset();
   };
@@ -27,7 +30,7 @@ export const ContactUs = () => {
       <label>subject</label>
       <input type="text" name="subject" required/>
       <label>Message</label>
-      <textarea name="message"/><br/>
+      <textarea className="textarea2"name="message"/><br/>
       <button>sent</button>
     </form>
     </div>

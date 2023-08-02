@@ -79,9 +79,32 @@ a:active{
 }
 h1{
   color:rgb(40, 25, 82);
-  margin-left:45% ;
+  display: flex;
+  justify-content: center;
 }
 .textarea{
   width: 100%;
   height: 200px;
+}
+.error-message{
+  color: red;
+  display: flex;
+  justify-content: center;
+}
+.formcontainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.success{
+  color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.failed{
+  color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
